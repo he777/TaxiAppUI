@@ -11,11 +11,12 @@ import { HeaderComponent } from './component/header/header.component';
 import { RegisterComponent } from './component/register/register.component';
 import { ConditionsComponent } from './component/conditions/conditions.component';
 import { MainComponent } from './component/main/main.component';
+import { LoginComponent } from './component/login/login.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
   { path: 'register', component: RegisterComponent },
-  // { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'conditions', component: ConditionsComponent },
 ];
 
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     RegisterComponent,
     ConditionsComponent,
-    MainComponent
+    MainComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
