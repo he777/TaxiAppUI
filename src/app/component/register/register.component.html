@@ -1,5 +1,4 @@
 
-
 <div class="container-fluid">
   <h1>Fill in your information</h1>
 <form [formGroup] = "signupForm" (ngSubmit)="onSubmit()">
@@ -37,7 +36,7 @@
       <div *ngIf="f.password.errors.minlength">One special character, uppercase, lowercase, number and between 8-20 characters.</div>
   </div>
   </div>
-  <!--TODO:compare passwords and output invalid message-->
+
   <div class="form-group">
       <label for="exampleInputPassword1">Retype password</label>
       <input type="password" class="form-control pb_height-50 reverse" id="exampleInputPassword2" placeholder="Password " aria-describedby="passwordHelpInline" formControlName="password2"
@@ -47,54 +46,8 @@
         <div *ngIf="f.password2.errors.mustMatch">Passwords must match</div>
     </div>
     </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Select application use</label>
-        <select class="form-control pb_height-50 reverse" id="exampleFormControlSelect1" formControlName="userrole">
-          <option [value]= "user" *ngFor= "let user of users"> {{ user }} </option>
-        </select>
-        <div *ngIf="signupForm.get('userrole').valid"
-          class="collapse" id="collapseExample" class="card card-body">
-          <form [formGroup] = "signupFormDriver" (ngSubmit)="onSubmit()">
-              <div class="form-group col-md-4">
-           <label for="exampleFormControlSelect2">Car list</label>
-          <select class="form-control pb_height-50 reverse" id="exampleFormControlSelect2">
-          <option [value]= "car" *ngFor= "let car of carsList"> {{ car }} </option>
-          </select>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="exampleFormControlSelect3">Model list</label>
-                   <select class="form-control pb_height-50 reversel" id="exampleFormControlSelect3" formControlName="car">
-                   <option [value]= "model" *ngFor= "let model of modelList"> {{ model }} </option>
-                   </select>
-                         </div>
-                         <div class="form-group col-md-4">
-                            <label for="exampleFormControlSelect4">Color</label>
-                           <select class="form-control pb_height-50 reverse" id="exampleFormControlSelect4" formControlName="model">
-                           <option [value]= "color" *ngFor= "let color of listOfColors"> {{ color }} </option>
-                           </select >
-                                 </div>
-                                 <!--TODO:choose only .jpg | .png format input, preview image, file size limitation? -->
-                                 <div class="form-group">
-                                    <label for="exampleFormControlFile1">Example file input</label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName="select">
-                                  </div>
-              <div class="form-row">
-                <div class="col">
-                  <input type="text" class="form-control pb_height-50 reverse" placeholder="Car licence number" formControlName="licence">
-                  <span *ngIf="!signupFormDriver.get('licence').valid && signupFormDriver.get('licence').touched"
-                  class="help-block">Please select value between 10-12 char</span>
-                </div>
-                <div class="col">
-                  <input type="text" class="form-control pb_height-50 reverse" placeholder="Car plate number" formControlName="plate">
-                  <span *ngIf="!signupFormDriver.get('plate').valid && signupFormDriver.get('plate').touched"
-                  class="help-block">Please select value between 5-7 char</span>
-                </div>
-              </div>
-            </form>
-          </div>
-    </div>
 
-<!--TODO:state will not be saved with this routing-->
+<!--TODO:state will not be saved with this routing / delete-->
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="conditions" >
     <a href routerLink="/conditions">Agree to terms and conditions</a>
